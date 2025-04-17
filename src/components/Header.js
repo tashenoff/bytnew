@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import LoadingLink from './LoadingLink';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -18,11 +19,11 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">Главная</Link>
-            <Link href="/services" className="text-gray-700 hover:text-blue-600 font-medium">Услуги</Link>
-            <Link href="/reviews" className="text-gray-700 hover:text-blue-600 font-medium">Отзывы</Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium">О нас</Link>
-            <Link href="/contacts" className="text-gray-700 hover:text-blue-600 font-medium">Контакты</Link>
+            <LoadingLink href="/" className="text-gray-700 hover:text-blue-600 font-medium">Главная</LoadingLink>
+            <LoadingLink href="/services" className="text-gray-700 hover:text-blue-600 font-medium">Услуги</LoadingLink>
+            <LoadingLink href="/reviews" className="text-gray-700 hover:text-blue-600 font-medium">Отзывы</LoadingLink>
+            <LoadingLink href="/about" className="text-gray-700 hover:text-blue-600 font-medium">О нас</LoadingLink>
+            <LoadingLink href="/contacts" className="text-gray-700 hover:text-blue-600 font-medium">Контакты</LoadingLink>
           </nav>
 
           {/* Phone Number - Desktop */}
@@ -51,21 +52,21 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="pt-2 pb-4 space-y-1">
-              <Link href="/" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
+              <LoadingLink href="/" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
                 Главная
-              </Link>
-              <Link href="/services" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
+              </LoadingLink>
+              <LoadingLink href="/services" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
                 Услуги
-              </Link>
-              <Link href="/reviews" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
+              </LoadingLink>
+              <LoadingLink href="/reviews" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
                 Отзывы
-              </Link>
-              <Link href="/about" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
+              </LoadingLink>
+              <LoadingLink href="/about" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
                 О нас
-              </Link>
-              <Link href="/contacts" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
+              </LoadingLink>
+              <LoadingLink href="/contacts" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600">
                 Контакты
-              </Link>
+              </LoadingLink>
               <a href="tel:+70000000000" onClick={() => setIsMenuOpen(false)} className="block py-2 px-3 text-blue-600 font-medium">
                 +7 (000) 000-00-00
               </a>

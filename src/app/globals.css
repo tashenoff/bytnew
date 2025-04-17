@@ -12,6 +12,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@keyframes pulse-x {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  50% {
+    width: 60%;
+    opacity: 0.8;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-pulse-x {
+  animation: pulse-x 1s ease-out forwards;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

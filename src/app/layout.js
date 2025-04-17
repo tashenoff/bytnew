@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
+import PageLoader from "../components/PageLoader";
+import { LoadingProvider } from "../components/LoadingContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,11 +19,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body className={`${inter.variable} font-sans antialiased min-h-screen bg-gray-50`}>
-        <Header />
-        
-        <main>
-          {children}
-        </main>
+        <LoadingProvider>
+          <PageLoader />
+          <Header />
+          
+          <main>
+            {children}
+          </main>
+        </LoadingProvider>
         
         <footer className="bg-gray-900 text-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
