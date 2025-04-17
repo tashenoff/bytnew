@@ -14,7 +14,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold text-gray-900">РемБытовой</span>
+            <Image 
+              src="/logo.svg" 
+              alt="РемБытовой" 
+              width={150} 
+              height={40} 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
