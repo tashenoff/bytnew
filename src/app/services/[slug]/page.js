@@ -1,25 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import services from "../../../data/services.json";
+import reviews from "../../../data/reviews.json";
+import ReviewCard from "../../../components/ReviewCard";
 
-export async function generateMetadata({ params }) {
-  const service = services.find(s => s.slug === params.slug);
+export default function ServicePage() {
+  // Используем хук useParams() для получения параметров маршрута на клиенте
+  const params = useParams();
+  const slug = params.slug;
   
-  if (!service) {
-    return {
-      title: "Услуга не найдена - РемБытовой",
-      description: "Запрашиваемая услуга не найдена.",
-    };
-  }
+  // Находим услугу по slug
+  const service = services.find(s => s.slug === slug);
   
-  return {
-    title: `${service.title} - РемБытовой`,
-    description: service.description,
-  };
-}
-
-export default function ServicePage({ params }) {
-  const service = services.find(s => s.slug === params.slug);
+  // Находим отзывы для услуги
+  const serviceReviews = reviews.filter(review => service && review.service === service.id);
   
   if (!service) {
     return (
@@ -186,6 +183,35 @@ export default function ServicePage({ params }) {
                 <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      
+      <section className="py-16 px-4 bg-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Отзывы клиентов</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Что говорят наши клиенты о ремонте {service.title.toLowerCase()}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceReviews.map(review => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+            
+            {serviceReviews.length === 0 && (
+              <div className="col-span-full text-center py-8">
+                <p className="text-gray-600">Пока нет отзывов для этой услуги. Будьте первым, кто оставит отзыв!</p>
+                <Link 
+                  href="/reviews"
+                  className="inline-block mt-4 bg-blue-600 text-white font-medium py-2 px-6 rounded-full transition-all duration-300"
+                >
+                  Оставить отзыв
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </section>
