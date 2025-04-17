@@ -52,13 +52,13 @@ export default function ServicePage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="bg-blue-100 p-8 rounded-lg flex justify-center items-center mb-8 lg:mb-0">
+              <div className="rounded-lg overflow-hidden mb-8 lg:mb-0">
                 <Image 
-                  src={service.icon} 
+                  src={service.image} 
                   alt={service.title} 
-                  width={240} 
-                  height={240} 
-                  className="object-contain"
+                  width={500} 
+                  height={350} 
+                  className="object-cover w-full h-auto"
                 />
               </div>
             </div>

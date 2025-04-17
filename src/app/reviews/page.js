@@ -32,7 +32,7 @@ export default function ReviewsPage() {
         </div>
       </section>
       
-      <section className="py-16 px-4 bg-gray-100">
+      {/* <section className="py-16 px-4 bg-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Оставьте свой отзыв</h2>
@@ -122,7 +122,7 @@ export default function ReviewsPage() {
             </form>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
