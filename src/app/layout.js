@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "../components/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,28 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body className={`${inter.variable} font-sans antialiased min-h-screen bg-gray-50`}>
-        <header className="bg-white shadow-md">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
-              <a href="/" className="flex items-center">
-                <span className="text-xl font-bold text-gray-900">РемБытовой</span>
-              </a>
-
-              <nav className="hidden md:flex space-x-8">
-                <a href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Главная</a>
-                <a href="/services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Услуги</a>
-                <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">О нас</a>
-                <a href="/contacts" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Контакты</a>
-              </nav>
-
-              <div className="hidden md:flex items-center">
-                <a href="tel:+70000000000" className="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                  +7 (000) 000-00-00
-                </a>
-              </div>
-            </div>
-          </div>
-        </header>
+        <Header />
         
         <main>
           {children}
